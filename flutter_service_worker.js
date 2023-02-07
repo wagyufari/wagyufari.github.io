@@ -14,10 +14,10 @@ const RESOURCES = {
 "splash/img/light-1x.png": "63381d5cd9e85881935c844d1b4c2a61",
 "splash/splash.js": "123c400b58bea74c1305ca3ac966748d",
 "splash/style.css": "8632f66b778ab6afb1cdff5a5d50857a",
-"index.html": "66cde725db161e35b824a7b9956d2c62",
-"/": "66cde725db161e35b824a7b9956d2c62",
-"main.dart.js": "17b3b51557c8e2f098164fbbd7a0e9c7",
-"flutter.js": "1cfe996e845b3a8a33f57607e8b09ee4",
+"index.html": "bf4a9a42871dcbe1922a2f32d24f0611",
+"/": "bf4a9a42871dcbe1922a2f32d24f0611",
+"main.dart.js": "34c65e0cc7a3d5767117210266ed9c37",
+"flutter.js": "a85fcf6324d3c4d3ae3be1ae4931e9c5",
 "favicon.png": "4405e887df8ad53d43b072a2613f7512",
 "icons/Icon-192.png": "8491a8272198c57834c00f3e5d1226eb",
 "icons/Icon-maskable-192.png": "8491a8272198c57834c00f3e5d1226eb",
@@ -26,17 +26,25 @@ const RESOURCES = {
 "manifest.json": "d6dc58f6bad4e9d129c1b897184e3148",
 ".git/config": "fd1302f226a57ed37c16bac2504f48d0",
 ".git/objects/6a/24a5947053df072b73187bc0a7a2895d2eaaaf": "1763df28c9a99433fc98660d9cbf2aae",
+".git/objects/67/52c00f9a62e6973b0e584f325b1fe25abc6836": "2a9e79570e418156fb4bd6e79be8faad",
+".git/objects/94/3f0ceabcf4e71237a296f6cf702520a0148e14": "26138d440d878a161b3f2c8a30ddb056",
+".git/objects/05/82455905372e3ddb8b335cc3b6f06255b7e821": "6b8f3b1434cc49131d9623072dbc6ac5",
+".git/objects/a3/b9b1e56ed29a80d39a6b0994e3feeb275e9150": "74ba27d089897f3a6b8209d0efdd17c4",
+".git/objects/da/e72bbcff6dea2ad69d209074bacbc1ee05e7a0": "55a3c0f9cbba7528a0604b8c7b2a1074",
+".git/objects/cf/0f50c1fd30aa291564255d7f9e97d18cfefc54": "fc1e3810575d7140749316db12879ba0",
 ".git/objects/pack/pack-7739a3463bab3f96bd515d60486018aa54d386f0.idx": "dd84f4fe689ab98523d430c09d9cb442",
 ".git/objects/pack/pack-7739a3463bab3f96bd515d60486018aa54d386f0.pack": "2c2d1e49e7e28695db72dc0a1a687e28",
 ".git/objects/17/7a21a1b35567bcb8105eb5cc35c29bac17bb53": "c396e19c73847d64029aaf151454b8d1",
+".git/objects/01/4df43a0565e4ceb236405af6d1d5634f5c1d46": "49de95a51958895edfe8e7650973e0fd",
 ".git/objects/f7/707b81a207aaee39ef16e24c5023e16329054d": "c083c46267e2cdddd0c88c89336db70b",
 ".git/objects/e7/18f304b57bbcf33bb1402321c3f65287909a4a": "a57332285d040ff5eaeb5e080d8b40ef",
+".git/objects/24/e4b130907b58544fa3082ff1658f499b10d88e": "7f9254829419d5bba75c729100a946c9",
 ".git/HEAD": "4cf2d64e44205fe628ddd534e1151b58",
 ".git/info/exclude": "036208b4a1ab4a235d75c181e685e5a3",
-".git/logs/HEAD": "fba293701ea1b284df4d07be430d21c7",
-".git/logs/refs/heads/master": "fba293701ea1b284df4d07be430d21c7",
-".git/logs/refs/remotes/origin/HEAD": "e06296d70e87c77109ec95da2d9bf71e",
-".git/logs/refs/remotes/origin/master": "17889c2e0a117647a4bcfbf89df73a48",
+".git/logs/HEAD": "20cfe0e6b6e6b308ea8ca293b421ff74",
+".git/logs/refs/heads/master": "20cfe0e6b6e6b308ea8ca293b421ff74",
+".git/logs/refs/remotes/origin/HEAD": "382d38d7c8136494fb8d168fbecb6691",
+".git/logs/refs/remotes/origin/master": "f594a78a97ac2944b48ec3b5df5ffb74",
 ".git/description": "a0a7c3fff21f2aea3cfa1d0316dd816c",
 ".git/hooks/commit-msg.sample": "579a3c1e12a1e74a98169175fb913012",
 ".git/hooks/pre-rebase.sample": "56e45f2bcbc8226d2b4200f7c46371bf",
@@ -51,20 +59,22 @@ const RESOURCES = {
 ".git/hooks/pre-push.sample": "2c642152299a94e05ea26eae11993b13",
 ".git/hooks/update.sample": "647ae13c682f7827c22f5fc08a03674e",
 ".git/hooks/push-to-checkout.sample": "c7ab00c7784efeadad3ae9b228d4b4db",
-".git/refs/heads/master": "d55e798ba66741d9f6bc00f07c4114ea",
+".git/refs/heads/master": "7142c4f26243808673c106be0352719e",
 ".git/refs/remotes/origin/HEAD": "73a00957034783b7b5c8294c54cd3e12",
-".git/refs/remotes/origin/master": "d55e798ba66741d9f6bc00f07c4114ea",
-".git/index": "0d2bd09c3aa586f5a039cebffa23caee",
+".git/refs/remotes/origin/master": "7142c4f26243808673c106be0352719e",
+".git/index": "75273068bd3bec09ef833f0a55d82562",
 ".git/packed-refs": "d86bf0b4ea7cc5c81f3f87202047b71e",
-".git/COMMIT_EDITMSG": "83d043db4fdfe6882fb7f01a09d92b11",
-".git/FETCH_HEAD": "aba1ab19a36cb77c20a75a88a231b34c",
+".git/COMMIT_EDITMSG": "ade31a28b1c7b052f5592a7e5b5ea4d5",
+".git/FETCH_HEAD": "d54813fcc41ca95f26d9c5b24a16a692",
 "assets/AssetManifest.json": "695e9a5f9bc4130d39c7bc31e46ab13c",
-"assets/NOTICES": "58105f3a68d01680da0ff1bdd63a2d4d",
+"assets/NOTICES": "aa00fdc20b4c2e8465947f92778fcdce",
 "assets/FontManifest.json": "3ddd9b2ab1c2ae162d46e3cc7b78ba88",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "d8e9b6203ce2657c991f0b339ccb3a6d",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-regular-400.ttf": "48ce1bb8a42776caa951cb782d277730",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf": "99f29024aee8f4672a47cc3a81b9b84a",
-"assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
+"assets/shaders/ink_sparkle.frag": "57f2f020e63be0dd85efafc7b7b25d80",
+"assets/AssetManifest.bin": "155798fd4396fcb3f1a762ff29bbeb3e",
+"assets/fonts/MaterialIcons-Regular.otf": "d2af560727b978d060b56469afe3f6d6",
 "assets/assets/gradient.jpg": "28b4af47da024a0518348614a79b78f1",
 "assets/assets/linkedin_selected.png": "18cf32e4cf23288186b752b55dcf8b77",
 "assets/assets/apple_logo.png": "398348910e6b7a5177df8c207b7bb312",
@@ -94,10 +104,10 @@ const RESOURCES = {
 "assets/assets/iphone12.png": "c81ba4b1e484677460f36b98afa4abaa",
 "assets/assets/leband.png": "82bdfca6d8585e555913857e329327a1",
 "assets/assets/mbstand.png": "6582948bed30ef6b22c0e85130804dac",
-"canvaskit/canvaskit.js": "97937cb4c2c2073c968525a3e08c86a3",
+"canvaskit/canvaskit.js": "1338eccfe817956d34753284f2b1cdf6",
 "canvaskit/profiling/canvaskit.js": "c21852696bc1cc82e8894d851c01921a",
 "canvaskit/profiling/canvaskit.wasm": "371bc4e204443b0d5e774d64a046eb99",
-"canvaskit/canvaskit.wasm": "3de12d898ec208a5f31362cc00f09b9e"
+"canvaskit/canvaskit.wasm": "74601b2ba7dae595fa19f461ffb658c8"
 };
 
 // The application shell files that are downloaded before a service worker can
@@ -139,6 +149,8 @@ self.addEventListener("activate", function(event) {
         await caches.delete(TEMP);
         // Save the manifest to make future upgrades efficient.
         await manifestCache.put('manifest', new Response(JSON.stringify(RESOURCES)));
+        // Claim client to enable caching on first launch
+        self.clients.claim();
         return;
       }
       var oldManifest = await manifest.json();
@@ -164,6 +176,8 @@ self.addEventListener("activate", function(event) {
       await caches.delete(TEMP);
       // Save the manifest to make future upgrades efficient.
       await manifestCache.put('manifest', new Response(JSON.stringify(RESOURCES)));
+      // Claim client to enable caching on first launch
+      self.clients.claim();
       return;
     } catch (err) {
       // On an unhandled exception the state of the cache cannot be guaranteed.
