@@ -13,13 +13,7 @@
     
     <script>
         function onRecaptchaSuccess(token) {
-            // Send the token to the iOS app
             window.webkit.messageHandlers.recaptchaHandler.postMessage(token);
-        }
-
-        function onSubmit(event) {
-            event.preventDefault(); // Prevent actual form submission
-            grecaptcha.execute(); // Execute reCAPTCHA programmatically
         }
     </script>
 </body>
