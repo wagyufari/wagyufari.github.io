@@ -3,13 +3,28 @@
 <head>
     <title>reCAPTCHA</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        .recaptcha-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height to center vertically */
+        }
+        .g-recaptcha {
+            transform: scale(2.5); /* Scale the widget */
+            transform-origin: center; /* Center the scale transformation */
+        }
+    </style>
 </head>
 <body>
-    <form id="captcha-form" onsubmit="onSubmit(event)">
-        <!-- Set the site key here -->
-        <div class="g-recaptcha" data-sitekey="6Lfu9X8qAAAAAPpu4EmTSMLACu0Wm-bV_An44j0K" data-callback="onRecaptchaSuccess"></div>
-        <button type="submit">Submit</button>
-    </form>
+    <div class="recaptcha-container">
+        <form id="captcha-form" onsubmit="onSubmit(event)">
+            <!-- Set the site key here -->
+            <div class="g-recaptcha" data-sitekey="6Lfu9X8qAAAAAPpu4EmTSMLACu0Wm-bV_An44j0K" data-callback="onRecaptchaSuccess"></div>
+            <br/>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
     
     <script>
         function onRecaptchaSuccess(token) {
