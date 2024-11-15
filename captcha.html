@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>reCAPTCHA</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <form id="captcha-form" onsubmit="onSubmit(event)">
+        <!-- Set the site key here -->
+        <div class="g-recaptcha" data-sitekey="6Lfu9X8qAAAAAPpu4EmTSMLACu0Wm-bV_An44j0K" data-callback="onRecaptchaSuccess"></div>
+        <button type="submit">Submit</button>
+    </form>
+    
+    <script>
+        function onRecaptchaSuccess(token) {
+            // Send the token to the iOS app
+            window.webkit.messageHandlers.recaptchaHandler.postMessage(token);
+        }
+
+        function onSubmit(event) {
+            event.preventDefault(); // Prevent actual form submission
+            grecaptcha.execute(); // Execute reCAPTCHA programmatically
+        }
+    </script>
+</body>
+</html>
