@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>reCAPTCHA</title>
+    <title>Invisible reCAPTCHA</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         .recaptcha-container {
@@ -10,25 +10,28 @@
             align-items: center;
             height: 100vh; /* Full height to center vertically */
         }
-        .g-recaptcha {
-            transform: scale(2.5); /* Scale the widget */
-            transform-origin: center; /* Center the scale transformation */
-        }
     </style>
 </head>
 <body>
     <div class="recaptcha-container">
         <form id="captcha-form" onsubmit="onSubmit(event)">
-            <!-- Set the site key here -->
-            <div class="g-recaptcha" data-sitekey="6Lfu9X8qAAAAAPpu4EmTSMLACu0Wm-bV_An44j0K" data-callback="onRecaptchaSuccess"></div>
-            <br/>
-
+            <button class="g-recaptcha" 
+                data-sitekey="6Lfu9X8qAAAAAPpu4EmTSMLACu0Wm-bV_An44j0K" 
+                data-callback="onRecaptchaSuccess" 
+                data-action="submit">
+                Submit
+            </button>
         </form>
     </div>
     
     <script>
         function onRecaptchaSuccess(token) {
             window.webkit.messageHandlers.recaptchaHandler.postMessage(token);
+        }
+
+        function onSubmit(event) {
+            event.preventDefault();
+            grecaptcha.execute();
         }
     </script>
 </body>
