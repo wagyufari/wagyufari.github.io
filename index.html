@@ -6,15 +6,16 @@
 </head>
 <body onload="onLoadExecute()">
     <div id="recaptcha-container"></div>
-    <div>ASD</div>
+    <div>12</div>
+    
     <script>
         function onRecaptchaSuccess(token) {
-            // Send the token to the iOS app
-            window.webkit.messageHandlers.recaptchaHandler.postMessage(token);
+            // Handle the token received from reCAPTCHA
+            console.log('reCAPTCHA token:', token);
         }
 
         function onLoadExecute() {
-            grecaptcha.execute('6LeOWYEqAAAAAGoBgOTL_7YtY-Q2LUjbUfix65bl', {action: 'homepage'})
+            grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', {action: 'homepage'})
                 .then(onRecaptchaSuccess)
                 .catch(function(error) {
                     console.error('reCAPTCHA error:', error);
