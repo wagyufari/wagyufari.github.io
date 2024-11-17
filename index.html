@@ -7,13 +7,13 @@
     <script src="https://www.google.com/recaptcha/api.js?render=6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl"></script>
 </head>
 <body>
-    <h1>Testing Invisible reCAPTCHA 4.0</h1>
+    <h1>Testing Invisible reCAPTCHA 5.0</h1>
     <script>
         function executeRecaptcha() {
             // Ensure grecaptcha is ready
             grecaptcha.ready(function() {
                 // Execute reCAPTCHA
-                grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', { action: 'homepage' })
+                grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', { action: 'submit' })
                     .then(function(token) {
                         if (token) {
                             console.log('reCAPTCHA Token:', token); // Log the valid token
