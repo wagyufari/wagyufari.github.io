@@ -7,19 +7,15 @@
     <script src="https://www.google.com/recaptcha/api.js?render=6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl"></script>
 </head>
 <body>
-    <h1>Testing Invisible reCAPTCHA 5.0</h1>
+    <h1>Testing Invisible reCAPTCHA with Delay</h1>
     <script>
         function executeRecaptcha() {
             // Ensure grecaptcha is ready
             grecaptcha.ready(function() {
-                // Execute reCAPTCHA
                 grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', { action: 'submit' })
                     .then(function(token) {
-                        if (token) {
-                            console.log('reCAPTCHA Token:', token); // Log the valid token
-                        } else {
-                            console.error('reCAPTCHA Token is null.');
-                        }
+                        console.log('reCAPTCHA Token:', token); // Log the token
+                        // Add your logic to submit to your backend server here.
                     })
                     .catch(function(error) {
                         console.error('Error executing reCAPTCHA:', error);
@@ -27,13 +23,11 @@
             });
         }
 
-        // Wait for the reCAPTCHA API to fully load
+        // Wait for the reCAPTCHA API to fully load and delay execution by 5 seconds
         window.onload = function() {
-            if (typeof grecaptcha !== 'undefined') {
+            setTimeout(function() {
                 executeRecaptcha();
-            } else {
-                console.error('reCAPTCHA did not load properly.');
-            }
+            }, 5000); // Delay by 5000ms (5 seconds)
         };
     </script>
 </body>
