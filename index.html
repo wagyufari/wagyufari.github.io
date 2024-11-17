@@ -3,28 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invisible reCAPTCHA 2.0</title>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl" async defer></script>
+    <title>Invisible reCAPTCHA</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <h1>Test Invisible reCAPTCHA 2.0</h1>
-    <form id="captcha-form" method="post">
-        <button type="button" id="submit-button">Submit</button>
-    </form>
+
+    <!-- Invisible reCAPTCHA widget -->
+    <div class="g-recaptcha"
+        data-sitekey="6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl"
+        data-callback="onSubmit"
+        data-size="invisible">
+    </div>
 
     <script>
-        // Callback for reCAPTCHA token
         function onSubmit(token) {
-            console.log("reCAPTCHA token:", token); // Log the token
-            document.getElementById('captcha-form').submit();
+            console.log("reCAPTCHA token:", token);
         }
 
-        // Add event listener to the submit button
-        document.getElementById('submit-button').addEventListener('click', function () {
-            // Programmatically execute reCAPTCHA
-            grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', { action: 'submit' })
-                .then(onSubmit);
-        });
+        window.onload = function () {
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', { action: 'homepage' })
+                    .then(function (token) {
+                        onSubmit(token);
+                    });
+            });
+        };
     </script>
 </body>
 </html>
