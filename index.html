@@ -7,7 +7,7 @@
     <script src="https://www.google.com/recaptcha/api.js?render=6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl" async defer></script>
 </head>
 <body>
-    <h1>Test Invisible reCAPTCHA 3.0</h1>
+    <h1>Test Invisible reCAPTCHA 4.0</h1>
 
     <!-- Invisible reCAPTCHA widget -->
     <div class="g-recaptcha"
@@ -22,12 +22,7 @@
         }
 
         window.onload = function () {
-            grecaptcha.ready(function () {
-                grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', { action: 'homepage' })
-                    .then(function (token) {
-                        onSubmit(token);
-                    });
-            });
+            grecaptcha.execute();
         };
     </script>
 </body>
