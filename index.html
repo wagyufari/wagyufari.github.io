@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invisible reCAPTCHA 1.0</title>
+    <title>Invisible reCAPTCHA 2.0</title>
     <script src="https://www.google.com/recaptcha/api.js?render=6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl" async defer></script>
 </head>
 <body>
-    <h1>Test Invisible reCAPTCHA 3.4</h1>
-    <form id="captcha-form" >
-        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+    <h1>Test Invisible reCAPTCHA 2.0</h1>
+    <form id="captcha-form" method="post">
+        <button type="button" id="submit-button">Submit</button>
     </form>
 
     <script>
+        // Callback for reCAPTCHA token
         function onSubmit(token) {
             console.log("reCAPTCHA token:", token); // Log the token
+            document.getElementById('captcha-form').submit();
         }
 
-        // Trigger reCAPTCHA programmatically after 3 seconds
-        setTimeout(() => {
-            grecaptcha.ready(function() {
-          grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', {action: 'submit'}).then(function(token) {
-              console.log("Token:", token);
-          });
+        // Add event listener to the submit button
+        document.getElementById('submit-button').addEventListener('click', function () {
+            // Programmatically execute reCAPTCHA
+            grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', { action: 'submit' })
+                .then(onSubmit);
         });
-        }, 3000);
     </script>
 </body>
 </html>
