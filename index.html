@@ -1,30 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invisible reCAPTCHA</title>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-    <div id="recaptcha-container"></div>
-    <div>BASDA2</div>
-    
+    <h1>Test Invisible reCAPTCHA</h1>
+    <form id="captcha-form" action="submit.php" method="post">
+        <button
+            class="g-recaptcha"
+            data-sitekey="6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl"
+            data-callback="onSubmit"
+            data-action="submit"
+        >
+            Submit
+        </button>
+    </form>
+
     <script>
-        function onRecaptchaSuccess(token) {
-            console.log('reCAPTCHA token:', token);
+        function onSubmit(token) {
+            document.getElementById('captcha-form').submit();
         }
-
-        function onLoadExecute() {
-            grecaptcha.ready(function() {
-                grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', {action: 'homepage'})
-                    .then(onRecaptchaSuccess)
-                    .catch(function(error) {
-                        console.error('reCAPTCHA error:', error);
-                    });
-            });
-        }
-
-        // Call onLoadExecute after defining it
-        onLoadExecute();
     </script>
 </body>
 </html>
