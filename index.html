@@ -1,31 +1,26 @@
+  <!-- Favicon -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Invisible reCAPTCHA</title>
+    <title>reCAPTCHA</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <style>
-        .recaptcha-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Full height to center vertically */
-        }
-    </style>
 </head>
-<body onload="onLoadExecute()">
-    <div id="recaptcha-container"></div>
-    <div>No2</div>
+<body>
+    <form id="captcha-form" onsubmit="onSubmit(event)">
+        <!-- Set the site key here -->
+        <div class="g-recaptcha" data-sitekey="6Lfu9X8qAAAAAPpu4EmTSMLACu0Wm-bV_An44j0K" data-callback="onRecaptchaSuccess"></div>
+        <button type="submit">Submit</button>
+    </form>
+    
     <script>
         function onRecaptchaSuccess(token) {
-            console.log('reCAPTCHA token:', token);
+            // Send the token to the iOS app
+            window.webkit.messageHandlers.recaptchaHandler.postMessage(token);
         }
 
-        function onLoadExecute() {
-            grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', {action: 'homepage'})
-                .then(onRecaptchaSuccess)
-                .catch(function(error) {
-                    console.error('reCAPTCHA error:', error);
-                });
+        function onSubmit(event) {
+            event.preventDefault(); // Prevent actual form submission
+            grecaptcha.execute(); // Execute reCAPTCHA programmatically
         }
     </script>
 </body>
