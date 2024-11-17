@@ -3,32 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invisible reCAPTCHA Execution</title>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl"></script>
+    <title>Invisible reCAPTCHA 1.0</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-    <h1>Testing Invisible reCAPTCHA with Delay</h1>
-    <script>
-        function executeRecaptcha() {
-            // Ensure grecaptcha is ready
-            grecaptcha.ready(function() {
-                grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', { action: 'submit' })
-                    .then(function(token) {
-                        console.log('reCAPTCHA Token:', token); // Log the token
-                        // Add your logic to submit to your backend server here.
-                    })
-                    .catch(function(error) {
-                        console.error('Error executing reCAPTCHA:', error);
-                    });
-            });
-        }
+    <h1>Test Invisible reCAPTCHA</h1>
+    <form id="captcha-form" action="submit.php" method="post">
+        <button
+            class="g-recaptcha"
+            data-sitekey="6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl"
+            data-callback="onSubmit"
+            data-action="submit"
+        >
+            Submit
+        </button>
+    </form>
 
-        // Wait for the reCAPTCHA API to fully load and delay execution by 5 seconds
-        window.onload = function() {
-            setTimeout(function() {
-                executeRecaptcha();
-            }, 5000); // Delay by 5000ms (5 seconds)
-        };
+    <script>
+        function onSubmit(token) {
+            document.getElementById('captcha-form').submit();
+        }
     </script>
 </body>
 </html>
