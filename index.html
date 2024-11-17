@@ -3,26 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invisible reCAPTCHA</title>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <title>Invisible reCAPTCHA on Load</title>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl"></script>
 </head>
 <body>
-    <h1>Test Invisible reCAPTCHA</h1>
-    <form id="captcha-form" action="submit.php" method="post">
-        <button
-            class="g-recaptcha"
-            data-sitekey="6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl"
-            data-callback="onSubmit"
-            data-action="submit"
-        >
-            Submit
-        </button>
-    </form>
-
+    <h1>Testing Invisible reCAPTCHA2</h1>
     <script>
-        function onSubmit(token) {
-            document.getElementById('captcha-form').submit();
-        }
+        // Execute reCAPTCHA immediately upon page load
+        window.onload = function() {
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', {action: 'homepage'})
+                .then(function(token) {
+                    console.log('reCAPTCHA Token:', token); // Log the token to the console
+                }).catch(function(error) {
+                    console.error('reCAPTCHA error:', error);
+                });
+            });
+        };
     </script>
 </body>
 </html>
