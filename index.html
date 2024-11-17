@@ -3,23 +3,29 @@
 <head>
     <title>Invisible reCAPTCHA</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        .recaptcha-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height to center vertically */
+        }
+    </style>
 </head>
 <body onload="onLoadExecute()">
     <div id="recaptcha-container"></div>
     
     <script>
         function onRecaptchaSuccess(token) {
-            window.webkit.messageHandlers.recaptchaHandler.postMessage(token);
+            console.log('reCAPTCHA token:', token);
         }
 
         function onLoadExecute() {
-            grecaptcha.execute('6Lfu9X8qAAAAAPpu4EmTSMLACu0Wm-bV_An44j0K', {action: 'homepage'})
-                .then(onRecaptchaSuccess);
-        }
-
-        function onSubmit(event) {
-            event.preventDefault();
-            grecaptcha.execute();
+            grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', {action: 'homepage'})
+                .then(onRecaptchaSuccess)
+                .catch(function(error) {
+                    console.error('reCAPTCHA error:', error);
+                });
         }
     </script>
 </body>
