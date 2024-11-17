@@ -7,20 +7,15 @@
     <script src="https://www.google.com/recaptcha/api.js?render=6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl" async defer></script>
 </head>
 <body>
-    <h1>Test Invisible reCAPTCHA 4.0</h1>
-
-    <!-- Invisible reCAPTCHA widget -->
     <div class="g-recaptcha"
         data-sitekey="6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl"
         data-callback="onSubmit"
         data-size="invisible">
     </div>
-
     <script>
         function onSubmit(token) {
-            console.log("reCAPTCHA token:", token);
+            window.webkit.messageHandlers.recaptchaHandler.postMessage(token);
         }
-
         window.onload = function () {
             grecaptcha.execute();
         };
