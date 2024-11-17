@@ -3,32 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invisible reCAPTCHA with Load Check</title>
+    <title>Invisible reCAPTCHA Execution</title>
     <script src="https://www.google.com/recaptcha/api.js?render=6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl"></script>
 </head>
 <body>
-    <h1>Testing Invisible reCAPTCHA 3.0</h1>
+    <h1>Testing Invisible reCAPTCHA 4.0</h1>
     <script>
-        function waitForRecaptcha() {
-            if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
-                // If grecaptcha is ready, execute reCAPTCHA
-                grecaptcha.ready(function() {
-                    grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', { action: 'homepage' })
-                        .then(function(token) {
-                            console.log('reCAPTCHA Token:', token); // Log the token to the console
-                        })
-                        .catch(function(error) {
-                            console.error('reCAPTCHA error:', error);
-                        });
-                });
-            } else {
-                // Retry after a short delay if grecaptcha isn't ready yet
-                setTimeout(waitForRecaptcha, 100);
-            }
+        function executeRecaptcha() {
+            // Ensure grecaptcha is ready
+            grecaptcha.ready(function() {
+                // Execute reCAPTCHA
+                grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', { action: 'homepage' })
+                    .then(function(token) {
+                        if (token) {
+                            console.log('reCAPTCHA Token:', token); // Log the valid token
+                        } else {
+                            console.error('reCAPTCHA Token is null.');
+                        }
+                    })
+                    .catch(function(error) {
+                        console.error('Error executing reCAPTCHA:', error);
+                    });
+            });
         }
 
-        // Start checking for reCAPTCHA readiness when the page loads
-        window.onload = waitForRecaptcha;
+        // Wait for the reCAPTCHA API to fully load
+        window.onload = function() {
+            if (typeof grecaptcha !== 'undefined') {
+                executeRecaptcha();
+            } else {
+                console.error('reCAPTCHA did not load properly.');
+            }
+        };
     </script>
 </body>
 </html>
