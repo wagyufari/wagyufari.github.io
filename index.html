@@ -4,23 +4,27 @@
     <title>Invisible reCAPTCHA</title>
     <script src="https://www.google.com/recaptcha/api.js?render=6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl" async defer></script>
 </head>
-<body onload="onLoadExecute()">
+<body>
     <div id="recaptcha-container"></div>
-    <div>BASDA</div>
+    <div>BASDA2</div>
     
     <script>
         function onRecaptchaSuccess(token) {
-            // Handle the token received from reCAPTCHA
             console.log('reCAPTCHA token:', token);
         }
 
         function onLoadExecute() {
-            grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', {action: 'homepage'})
-                .then(onRecaptchaSuccess)
-                .catch(function(error) {
-                    console.error('reCAPTCHA error:', error);
-                });
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', {action: 'homepage'})
+                    .then(onRecaptchaSuccess)
+                    .catch(function(error) {
+                        console.error('reCAPTCHA error:', error);
+                    });
+            });
         }
+
+        // Call onLoadExecute after defining it
+        onLoadExecute();
     </script>
 </body>
 </html>
