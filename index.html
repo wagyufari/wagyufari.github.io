@@ -7,23 +7,23 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-    <h1>Test Invisible reCAPTCHA 2.0</h1>
+    <h1>Test Invisible reCAPTCHA 3.0</h1>
     <form id="captcha-form" method="post">
-        <button
-            class="g-recaptcha"
-            data-sitekey="6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl"
-            data-callback="onSubmit"
-            data-action="submit"
-        >
-            Submit
-        </button>
+        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
     </form>
 
     <script>
         function onSubmit(token) {
             console.log("reCAPTCHA token:", token); // Log the token
+            document.getElementById('g-recaptcha-response').value = token;
             document.getElementById('captcha-form').submit();
         }
+
+        // Trigger reCAPTCHA programmatically after 3 seconds
+        setTimeout(() => {
+            grecaptcha.execute('6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl', {action: 'submit'})
+                .then(onSubmit);
+        }, 3000);
     </script>
 </body>
 </html>
