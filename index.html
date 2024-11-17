@@ -7,8 +7,8 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-    <h1>Test Invisible reCAPTCHA</h1>
-    <form id="captcha-form" action="submit.php" method="post">
+    <h1>Test Invisible reCAPTCHA 2.0</h1>
+    <form id="captcha-form" method="post">
         <button
             class="g-recaptcha"
             data-sitekey="6LeDZIEqAAAAAMTut6tQ6_v4LE1Q2MafPst5dnkl"
@@ -21,6 +21,7 @@
 
     <script>
         function onSubmit(token) {
+            console.log("reCAPTCHA token:", token); // Log the token
             document.getElementById('captcha-form').submit();
         }
     </script>
