@@ -1,1 +1,10 @@
-[]
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.wagyufari.dzikirqu.debug",
+    "sha256_cert_fingerprints": [
+      " 45:16:25:56:B4:25:D3:9F:89:D0:EB:14:0D:A9:66:0B:60:DD:AF:DA:10:79:59:19:FB:02:71:FF:38:C5:9C:E6",
+    ]
+  }
+}]
